@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="what's your grade?"
+            android:textSize="28sp"
+            android:textColor="@color/text_dark"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="we'll personalize your learning"
+            android:textSize="14sp"
+            android:textColor="@color/text_light"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginBottom="40dp" />
+
+        <!-- Primary School -->
+        <LinearLayout
+            android:id="@+id/layoutPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/grade_option_bg"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="primary school"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_dark"
+                    android:fontFamily="sans-serif-light" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="grades 1-5"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_light"
+                    android:fontFamily="sans-serif-light" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Middle School -->
+        <LinearLayout
+            android:id="@+id/layoutMiddle"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/grade_option_bg"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="middle school"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_dark"
+                    android:fontFamily="sans-serif-light" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="grades 6-8"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_light"
+                    android:fontFamily="sans-serif-light" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- High School -->
+        <LinearLayout
+            android:id="@+id/layoutHigh"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/grade_option_bg"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="high school"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_dark"
+                    android:fontFamily="sans-serif-light" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="grades 9-12"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_light"
+                    android:fontFamily="sans-serif-light" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- University -->
+        <LinearLayout
+            android:id="@+id/layoutUniversity"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/grade_option_bg"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:layout_marginBottom="32dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="university / college"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_dark"
+                    android:fontFamily="sans-serif-light" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="higher education"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_light"
+                    android:fontFamily="sans-serif-light" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="continue"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-light"
+            android:background="@drawable/bubble_button_bg"
+            android:elevation="2dp" />
+
+    </LinearLayout>
+</ScrollView>

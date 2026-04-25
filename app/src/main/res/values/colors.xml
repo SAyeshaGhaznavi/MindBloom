@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Soft Primary Colors -->
+    <color name="primary_color">#7C6FF7</color>
+    <color name="primary_light">#EEEAFF</color>
+    <color name="primary_dark">#5B4FCC</color>
+
+    <!-- Background Colors -->
+    <color name="bg_main">#FAF9FF</color>
+    <color name="bg_white">#FFFFFF</color>
+    <color name="bg_card">#FFFFFF</color>
+
+    <!-- Text Colors -->
+    <color name="text_dark">#2D2D3A</color>
+    <color name="text_medium">#6E6E82</color>
+    <color name="text_light">#A5A5B4</color>
+
+    <!-- Accent Colors - Soft & Bubbly -->
+    <color name="accent_pink">#FF9A9E</color>
+    <color name="accent_blue">#A8E6CF</color>
+    <color name="accent_yellow">#FFD3B6</color>
+    <color name="accent_green">#97E5D7</color>
+
+    <!-- Card Colors -->
+    <color name="card_purple">#F0ECFF</color>
+    <color name="card_pink">#FFF0F0</color>
+    <color name="card_blue">#E8F4FF</color>
+    <color name="card_green">#E6FFF6</color>
+    <color name="card_yellow">#FFF8ED</color>
+
+    <!-- Status Colors -->
+    <color name="success">#7DD3AE</color>
+    <color name="error">#FF8A80</color>
+
+    <!-- Gradient -->
+    <color name="gradient_start">#C5CAFF</color>
+    <color name="gradient_end">#FFE0E6</color>
+</resources>

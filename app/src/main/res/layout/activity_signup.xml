@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/sakura"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="join us"
+            android:textSize="28sp"
+            android:textColor="@color/text_dark"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="create your account"
+            android:textSize="14sp"
+            android:textColor="@color/text_light"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginBottom="40dp" />
+
+        <!-- Name Input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bubble_input_bg"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/people"
+                android:layout_gravity="center"/>
+
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:background="@null"
+                android:hint="full name"
+                android:textColorHint="@color/text_light"
+                android:textColor="@color/text_dark"
+                android:textSize="15sp"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:fontFamily="sans-serif-light" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nameErrorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/tvNameError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/error"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-light" />
+        </LinearLayout>
+
+        <!-- Email Input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bubble_input_bg"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/email"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:background="@null"
+                android:hint="email or username"
+                android:textColorHint="@color/text_light"
+                android:textColor="@color/text_dark"
+                android:textSize="15sp"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:fontFamily="sans-serif-light" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/emailErrorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/tvEmailError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/error"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-light" />
+        </LinearLayout>
+
+        <!-- Password Input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bubble_input_bg"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/password"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:background="@null"
+                android:hint="password"
+                android:textColorHint="@color/text_light"
+                android:textColor="@color/text_dark"
+                android:textSize="15sp"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:fontFamily="sans-serif-light" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="8+ characters, with uppercase, number and special character"
+            android:textSize="11sp"
+            android:textColor="@color/text_light"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginBottom="16dp"
+            android:paddingHorizontal="16dp" />
+
+        <LinearLayout
+            android:id="@+id/passwordErrorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/tvPasswordError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/error"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-light" />
+        </LinearLayout>
+
+        <!-- Sign Up Button -->
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="create account"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-light"
+            android:background="@drawable/bubble_button_bg"
+            android:elevation="2dp"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+</ScrollView>
