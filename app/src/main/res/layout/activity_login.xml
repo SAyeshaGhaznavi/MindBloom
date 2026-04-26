@@ -27,41 +27,41 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sign in to continue"
-            android:textSize="14sp"
-            android:textColor="@color/text_light"
+            android:layout_marginBottom="48dp"
             android:fontFamily="sans-serif-light"
-            android:layout_marginBottom="48dp" />
+            android:text="sign in to continue"
+            android:textColor="@color/text_light"
+            android:textSize="14sp" />
 
         <!-- Email Input -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/bubble_input_bg"
             android:gravity="center_vertical"
-            android:paddingHorizontal="16dp"
-            android:layout_marginBottom="16dp">
+            android:paddingHorizontal="16dp">
 
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:src="@drawable/email"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:src="@drawable/email" />
 
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="10dp"
+                android:layout_weight="1"
                 android:background="@null"
+                android:fontFamily="sans-serif-light"
                 android:hint="email or username"
-                android:textColorHint="@color/text_light"
-                android:textColor="@color/text_dark"
-                android:textSize="15sp"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:fontFamily="sans-serif-light" />
+                android:textColor="@color/text_dark"
+                android:textColorHint="@color/text_light"
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -75,40 +75,40 @@
                 android:id="@+id/tvEmailError"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:textColor="@color/error"
-                android:textSize="12sp"
-                android:fontFamily="sans-serif-light" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <!-- Password Input -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/bubble_input_bg"
             android:gravity="center_vertical"
-            android:paddingHorizontal="16dp"
-            android:layout_marginBottom="16dp">
+            android:paddingHorizontal="16dp">
 
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:src="@drawable/password"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:src="@drawable/password" />
 
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="10dp"
+                android:layout_weight="1"
                 android:background="@null"
+                android:fontFamily="sans-serif-light"
                 android:hint="password"
-                android:textColorHint="@color/text_light"
-                android:textColor="@color/text_dark"
-                android:textSize="15sp"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:fontFamily="sans-serif-light" />
+                android:textColor="@color/text_dark"
+                android:textColorHint="@color/text_light"
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -122,9 +122,9 @@
                 android:id="@+id/tvPasswordError"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:textColor="@color/error"
-                android:textSize="12sp"
-                android:fontFamily="sans-serif-light" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <!-- Login Button -->
@@ -132,14 +132,14 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="54dp"
-            android:text="sign in"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textAllCaps="false"
-            android:fontFamily="sans-serif-light"
+            android:layout_marginBottom="24dp"
             android:background="@drawable/bubble_button_bg"
             android:elevation="2dp"
-            android:layout_marginBottom="24dp" />
+            android:fontFamily="sans-serif-light"
+            android:text="sign in"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
 
         <!-- Sign Up Link -->
         <LinearLayout
@@ -150,21 +150,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:text="new here? "
-                android:textSize="14sp"
                 android:textColor="@color/text_light"
-                android:fontFamily="sans-serif-light" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tvSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="create account"
-                android:textSize="14sp"
-                android:textColor="@color/primary_color"
-                android:fontFamily="sans-serif-light"
                 android:clickable="true"
-                android:focusable="true" />
+                android:focusable="true"
+                android:fontFamily="sans-serif-light"
+                android:text="create account"
+                android:textColor="@color/primary_color"
+                android:textSize="14sp" />
         </LinearLayout>
 
     </LinearLayout>

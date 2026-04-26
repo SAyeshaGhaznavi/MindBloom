@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -15,9 +16,20 @@ public class LessonActivity extends AppCompatActivity {
     private Button btnPrev, btnNext, btnTakeQuiz;
     private ProgressBar lessonProgress;
 
+    private ImageButton btnAudioPlay, btnTimerToggle;
+    private SeekBar audioSeekBar, seekBarAudio, seekBarSpeed;
+    private Switch switchSignLanguage, switchSubtitles, switchInterpreter;
+    private TextView tvAudioTime, tvSpeedLabel, tvFocusTimer;
+
     private List<String[]> pages; // each String[]: {title, body}
     private int currentPage = 0;
     private String subject = "Math";
+
+    private boolean isAudioPlaying = false;
+
+    private CountDownTimer focusTimer;
+    private boolean isTimerRunning = false;
+    private long timeLeftInMillis = 600000; // 10 minutes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +48,18 @@ public class LessonActivity extends AppCompatActivity {
         btnNext        = findViewById(R.id.btnLessonNext);
         btnTakeQuiz    = findViewById(R.id.btnTakeQuiz);
 
+        btnAudioPlay       = findViewById(R.id.btnAudioPlay);
+        btnTimerToggle     = findViewById(R.id.btnTimerToggle);
+        audioSeekBar       = findViewById(R.id.audioSeekBar);
+        seekBarAudio       = findViewById(R.id.seekBarAudio);
+        seekBarSpeed       = findViewById(R.id.seekBarSpeed);
+        switchSignLanguage = findViewById(R.id.switchSignLanguage);
+        switchSubtitles    = findViewById(R.id.switchSubtitles);
+        switchInterpreter  = findViewById(R.id.switchInterpreter);
+        tvAudioTime        = findViewById(R.id.tvAudioTime);
+        tvSpeedLabel       = findViewById(R.id.tvSpeedLabel);
+        tvFocusTimer       = findViewById(R.id.tvFocusTimer);
+
         tvSubjectTitle.setText(subject + " Lesson");
 
         pages = getLessonPages(subject);
@@ -51,7 +75,6 @@ public class LessonActivity extends AppCompatActivity {
         });
 
         btnTakeQuiz.setOnClickListener(v -> {
-            // Mark lesson as completed
             SharedPreferences prefs = getSharedPreferences("MindBloomPrefs", MODE_PRIVATE);
             prefs.edit().putBoolean("lesson_done_" + subject, true).apply();
 
@@ -62,6 +85,124 @@ public class LessonActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.btnLessonBack).setOnClickListener(v -> finish());
+
+        // Audio play / pause
+        btnAudioPlay.setOnClickListener(v -> {
+            isAudioPlaying = !isAudioPlaying;
+            if (isAudioPlaying) {
+                btnAudioPlay.setImageResource(android.R.drawable.ic_media_pause);
+                startAudioSimulation();
+            } else {
+                btnAudioPlay.setImageResource(android.R.drawable.ic_media_play);
+            }
+        });
+
+        // Speed slider
+        seekBarSpeed.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                float speed = progress / 100f;
+                tvSpeedLabel.setText(String.format(Locale.US, "%.1fx", speed));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+
+        // Sign Language Stream toggle
+        switchSignLanguage.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            Toast.makeText(this, isChecked ? "Sign Language Stream ON" : "Audio-Only Mode", Toast.LENGTH_SHORT).show();
+        });
+
+        // Subtitles toggle
+        switchSubtitles.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            Toast.makeText(this, isChecked ? "Subtitles ON" : "Subtitles OFF", Toast.LENGTH_SHORT).show();
+        });
+
+        // Sign Language Interpreter toggle
+        switchInterpreter.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            Toast.makeText(this, isChecked ? "Sign Language Interpreter ON" : "Sign Language Interpreter OFF", Toast.LENGTH_SHORT).show();
+        });
+
+        // Focus Timer
+        btnTimerToggle.setOnClickListener(v -> {
+            if (isTimerRunning) {
+                pauseTimer();
+            } else {
+                startTimer();
+            }
+        });
+
+        updateTimerDisplay();
+    }
+
+    private void startAudioSimulation() {
+        Thread thread = new Thread(() -> {
+            int current = audioSeekBar.getProgress();
+            while (isAudioPlaying && current < audioSeekBar.getMax()) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    break;
+                }
+                current++;
+                int finalCurrent = current;
+                runOnUiThread(() -> {
+                    audioSeekBar.setProgress(finalCurrent);
+                    int mins = finalCurrent / 60;
+                    int secs = finalCurrent % 60;
+                    tvAudioTime.setText(String.format(Locale.US, "%d:%02d", mins, secs));
+                });
+            }
+            if (current >= audioSeekBar.getMax()) {
+                runOnUiThread(() -> {
+                    isAudioPlaying = false;
+                    btnAudioPlay.setImageResource(android.R.drawable.ic_media_play);
+                    audioSeekBar.setProgress(0);
+                    tvAudioTime.setText("0:00");
+                });
+            }
+        });
+        thread.start();
+    }
+
+    private void startTimer() {
+        focusTimer = new CountDownTimer(timeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMillis = millisUntilFinished;
+                updateTimerDisplay();
+            }
+
+            @Override
+            public void onFinish() {
+                isTimerRunning = false;
+                btnTimerToggle.setImageResource(android.R.drawable.ic_media_play);
+                timeLeftInMillis = 600000;
+                updateTimerDisplay();
+                Toast.makeText(LessonActivity.this, "Focus time is up! Great job! 🌟", Toast.LENGTH_LONG).show();
+            }
+        }.start();
+
+        isTimerRunning = true;
+        btnTimerToggle.setImageResource(android.R.drawable.ic_media_pause);
+    }
+
+    private void pauseTimer() {
+        if (focusTimer != null) {
+            focusTimer.cancel();
+        }
+        isTimerRunning = false;
+        btnTimerToggle.setImageResource(android.R.drawable.ic_media_play);
+    }
+
+    private void updateTimerDisplay() {
+        int minutes = (int) (timeLeftInMillis / 1000) / 60;
+        int seconds = (int) (timeLeftInMillis / 1000) % 60;
+        tvFocusTimer.setText(String.format(Locale.US, "%02d:%02d", minutes, seconds));
     }
 
     private void showPage(int index) {
@@ -77,7 +218,6 @@ public class LessonActivity extends AppCompatActivity {
         btnNext.setEnabled(index < pages.size() - 1);
         btnNext.setAlpha(index < pages.size() - 1 ? 1f : 0.4f);
 
-        // Show quiz button on last page
         btnTakeQuiz.setVisibility(index == pages.size() - 1 ? android.view.View.VISIBLE : android.view.View.GONE);
     }
 
@@ -106,7 +246,7 @@ public class LessonActivity extends AppCompatActivity {
                 list.add(new String[]{"The Water Cycle 💧",
                         "Water travels in a never-ending cycle:\n\n1. EVAPORATION — sun heats water, it rises as vapour\n2. CONDENSATION — vapour cools and forms clouds\n3. PRECIPITATION — rain/snow falls back down\n4. COLLECTION — gathers in rivers, lakes, oceans\n\n...and the cycle begins again! 🔄"});
                 list.add(new String[]{"Our Solar System 🪐",
-                        "There are 8 planets in our solar system:\n\n☿ Mercury — closest to Sun, very hot!\n♀ Venus — brightest planet\n🌍 Earth — our home!\n♂ Mars — the red planet\n♃ Jupiter — largest planet\n♄ Saturn — has beautiful rings\n⛢ Uranus — rotates on its side\n♆ Neptune — furthest from Sun"});
+                        "There are 8 planets in our solar system:\n\n☿ Mercury — closest to Sun, very hot!\n♀ Venus — brightest planet\n🌍 Earth — our home!\n♂ Mars — the red planet\n♃ Jupiter — largest planet\n♄ Saturn — has beautiful rings\n♅ Uranus — rotates on its side\n♆ Neptune — furthest from Sun"});
                 break;
             case "Urdu":
                 list.add(new String[]{"اردو حروف تہجی 🌸",
