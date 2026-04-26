@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF8F0"
+    android:padding="20dp">
+
+    <!-- Top bar: back button + title + score -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_media_previous"
+            android:background="@null"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Quiz Time! 🧠"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/tvScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="⭐ 0"
+            android:textSize="18sp"
+            android:textColor="#F5A623"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Progress bar showing which question you're on -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:max="5"
+        android:progress="1"
+        android:progressTint="#4A90D9"
+        android:layout_marginBottom="6dp" />
+
+    <TextView
+        android:id="@+id/tvQuestionCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Question 1 of 5"
+        android:textSize="13sp"
+        android:textColor="#888888"
+        android:gravity="end"
+        android:layout_marginBottom="20dp" />
+
+    <!-- The question itself inside a card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginBottom="28dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="#FFFFFF">
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Question goes here"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:padding="20dp"
+            android:gravity="center" />
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- 4 answer buttons -->
+    <Button
+        android:id="@+id/btnOption1"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:backgroundTint="#FFFFFF"
+        android:stateListAnimator="@null"
+        android:elevation="2dp" />
+
+    <Button
+        android:id="@+id/btnOption2"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:backgroundTint="#FFFFFF"
+        android:stateListAnimator="@null"
+        android:elevation="2dp" />
+
+    <Button
+        android:id="@+id/btnOption3"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:backgroundTint="#FFFFFF"
+        android:stateListAnimator="@null"
+        android:elevation="2dp" />
+
+    <Button
+        android:id="@+id/btnOption4"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:backgroundTint="#FFFFFF"
+        android:stateListAnimator="@null"
+        android:elevation="2dp" />
+
+</LinearLayout>

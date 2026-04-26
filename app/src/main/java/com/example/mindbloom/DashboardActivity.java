@@ -2,7 +2,6 @@ package com.example.mindbloom;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,24 +22,32 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void initializeViews() {
-        tvWelcome = findViewById(R.id.tvWelcome);
-        cardSubjects = findViewById(R.id.cardSubjects);
-        cardHomework = findViewById(R.id.cardHomework);
-        cardLectures = findViewById(R.id.cardLectures);
-        cardQuizzes = findViewById(R.id.cardQuizzes);
+        tvWelcome     = findViewById(R.id.tvWelcome);
+        cardSubjects  = findViewById(R.id.cardSubjects);
+        cardHomework  = findViewById(R.id.cardHomework);
+        cardLectures  = findViewById(R.id.cardLectures);
+        cardQuizzes   = findViewById(R.id.cardQuizzes);
         layoutProfile = findViewById(R.id.layoutProfile);
     }
 
     private void setupClickListeners() {
+
+        // Profile icon → ProfileSettings
         layoutProfile.setOnClickListener(v -> {
-            Intent intent = new Intent(DashboardActivity.this, ProfileSettingsActivity.class);
+            startActivity(new Intent(DashboardActivity.this, ProfileSettingsActivity.class));
+        });
+
+        // Quizzes card → QuizActivity (Math as default subject)
+        cardQuizzes.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, QuizActivity.class);
+            intent.putExtra("subject", "Math");
             startActivity(intent);
         });
 
-        cardSubjects.setOnClickListener(v -> showComingSoon("subjects 📚"));
-        cardHomework.setOnClickListener(v -> showComingSoon("homework ✏️"));
-        cardLectures.setOnClickListener(v -> showComingSoon("lectures 🎥"));
-        cardQuizzes.setOnClickListener(v -> showComingSoon("quizzes 📝"));
+        // Other cards — coming soon for now
+        cardSubjects.setOnClickListener(v -> showComingSoon("Subjects 📚"));
+        cardHomework.setOnClickListener(v -> showComingSoon("Homework ✏️"));
+        cardLectures.setOnClickListener(v -> showComingSoon("Lectures 🎥"));
     }
 
     private void showComingSoon(String feature) {
