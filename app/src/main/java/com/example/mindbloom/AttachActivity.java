@@ -12,7 +12,7 @@ public class AttachActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager2 viewPager;
 
-    private final String[] tabTitles = {"🏠 Home", "📊 Progress", "⚙️ Settings", "👤 Profile"};
+    private final String[] tabTitles = {"🏠      Home", "📊 Progress", "⚙️ Settings", "👤 Profile"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -55,6 +55,57 @@
                 android:fontFamily="sans-serif-light" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/layoutParentSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/feature_card_bg"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👨‍👩‍👧‍👦"
+                android:textSize="24sp"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="parents settings"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_dark"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="manage screen time and content safety"
+                    android:textSize="11sp"
+                    android:textColor="@color/text_light"
+                    android:fontFamily="sans-serif-light"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="›"
+                android:textSize="24sp"
+                android:textColor="@color/text_light"/>
+        </LinearLayout>
+
         <!-- Account Settings -->
         <TextView
             android:layout_width="wrap_content"
@@ -73,6 +124,29 @@
             android:padding="20dp"
             android:layout_marginBottom="24dp">
 
+            <!-- NEW: Edit Name -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="name"
+                android:textSize="12sp"
+                android:textColor="@color/text_light"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bubble_input_bg"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/text_dark"
+                android:textSize="14sp"
+                android:inputType="textPersonName"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Existing: Email -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,7 +165,8 @@
                 android:textColor="@color/text_dark"
                 android:textSize="14sp"
                 android:inputType="textEmailAddress"
-                android:fontFamily="sans-serif-light" />
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="12dp" />
 
             <Button
                 android:layout_width="match_parent"
@@ -101,8 +176,118 @@
                 android:textSize="13sp"
                 android:textAllCaps="false"
                 android:fontFamily="sans-serif-light"
-                android:background="@drawable/outlined_button_bg"
-                android:layout_marginTop="12dp" />
+                android:background="@drawable/outlined_button_bg" />
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════ -->
+        <!-- NEW: Preferences Section -->
+        <!-- ══════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="preferences"
+            android:textSize="13sp"
+            android:textColor="@color/text_light"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/feature_card_bg"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="24dp">
+
+            <!-- Notifications -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="12dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="push notifications"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_dark"
+                        android:fontFamily="sans-serif-light" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="homework and quiz reminders"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_light"
+                        android:fontFamily="sans-serif-light" />
+                </LinearLayout>
+
+                <Switch
+                    android:id="@+id/switchNotifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/primary_color"
+                    android:trackTint="@color/primary_light" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F0EEF5" />
+
+            <!-- Language -->
+            <LinearLayout
+                android:id="@+id/layoutLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="language"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_dark"
+                        android:fontFamily="sans-serif-light" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="English"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_medium"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="24sp"
+                    android:textColor="@color/text_light"/>
+            </LinearLayout>
         </LinearLayout>
 
         <!-- Accessibility Settings -->
@@ -254,6 +439,54 @@
             </LinearLayout>
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="support"
+            android:textSize="13sp"
+            android:textColor="@color/text_light"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/feature_card_bg"
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:layout_marginBottom="32dp">
+
+            <LinearLayout
+                android:id="@+id/layoutHelpFaq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="help and faq"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_dark"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_marginStart="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="24sp"
+                    android:textColor="@color/text_light"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
         <!-- Logout -->
         <Button
             android:id="@+id/btnLogout"
@@ -265,7 +498,19 @@
             android:textAllCaps="false"
             android:fontFamily="sans-serif-light"
             android:background="@drawable/outlined_button_bg"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- NEW: App Version at bottom -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="mindbloom v1.0"
+            android:textSize="12sp"
+            android:textColor="@color/text_light"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
 
     </LinearLayout>
 </ScrollView>

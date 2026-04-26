@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,10 @@ public class ProfileFragment extends Fragment {
     private EditText etEmail;
     private Switch switchVoiceControl, switchHighContrast, switchLargeText;
     private Button btnLogout;
+    private LinearLayout layoutParentSettings;
+
+    // 1. Declare the Help & FAQ layout
+    private LinearLayout layoutHelpFaq;
 
     @Nullable
     @Override
@@ -44,6 +49,10 @@ public class ProfileFragment extends Fragment {
         switchHighContrast = view.findViewById(R.id.switchHighContrast);
         switchLargeText = view.findViewById(R.id.switchLargeText);
         btnLogout = view.findViewById(R.id.btnLogout);
+        layoutParentSettings = view.findViewById(R.id.layoutParentSettings);
+
+        // 2. Initialize it
+        layoutHelpFaq = view.findViewById(R.id.layoutHelpFaq);
 
         SharedPreferences prefs = requireContext().getSharedPreferences("MindBloomPrefs", Context.MODE_PRIVATE);
         String name = prefs.getString("userName", "student name");
@@ -53,9 +62,19 @@ public class ProfileFragment extends Fragment {
         tvStudentName.setText(name);
         tvGrade.setText(grade);
         etEmail.setText(email);
+
     }
 
     private void setupListeners() {
+        layoutParentSettings.setOnClickListener(v ->
+                startActivity(new Intent(requireActivity(), ParentSettingsActivity.class))
+        );
+
+        // 3. Add the click listener for FAQ
+        layoutHelpFaq.setOnClickListener(v ->
+                startActivity(new Intent(requireActivity(), FaqActivity.class))
+        );
+
         switchVoiceControl.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 Toast.makeText(requireContext(), "voice control on 🎤", Toast.LENGTH_SHORT).show();

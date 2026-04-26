@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MindBloom">
         <activity
+            android:name=".ParentSettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".AttachActivity"
             android:exported="false" />
         <activity
@@ -37,9 +40,8 @@
             android:name=".GradeSelectionActivity"
             android:exported="false" />
         <activity
-            android:name=".DashboardActivity"
-            android:exported="false"
-            android:launchMode="singleTop" />
+            android:name=".FaqActivity"
+            android:exported="false" />
         <activity
             android:name=".SubjectSelectionActivity"
             android:exported="false" />
@@ -51,15 +53,6 @@
             android:exported="false" />
         <activity
             android:name=".HomeworkActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProgressActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProfileSettingsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SettingsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
