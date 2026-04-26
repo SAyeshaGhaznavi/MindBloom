@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_main"
+    android:padding="32dp">
+
+    <!-- Skip -->
+    <TextView
+        android:id="@+id/tvSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="Skip"
+        android:textColor="@color/text_light"
+        android:textSize="14sp"
+        android:padding="8dp"/>
+
+    <!-- Step indicator -->
+    <TextView
+        android:id="@+id/tvStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="1 of 5"
+        android:textColor="@color/text_light"
+        android:textSize="13sp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Big emoji -->
+    <TextView
+        android:id="@+id/tvOnboardEmoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="🌸"
+        android:textSize="80sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvOnboardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Welcome to MindBloom"
+        android:textColor="@color/text_dark"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Description -->
+    <TextView
+        android:id="@+id/tvOnboardDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Description here"
+        android:textColor="@color/text_medium"
+        android:textSize="15sp"
+        android:lineSpacingMultiplier="1.5"
+        android:layout_marginBottom="40dp"/>
+
+    <!-- Dots -->
+    <LinearLayout
+        android:id="@+id/dotsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginBottom="40dp"/>
+
+    <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+    <!-- Next button -->
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="Next →"
+        android:backgroundTint="@color/primary_color"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+</LinearLayout>

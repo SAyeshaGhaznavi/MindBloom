@@ -10,7 +10,17 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-        <!-- Header -->
+        <!-- Breadcrumb -->
+        <TextView
+            android:id="@+id/tvBreadcrumb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home > Progress"
+            android:textColor="@color/text_light"
+            android:textSize="12sp"
+            android:layout_marginBottom="6dp"/>
+
+                <!-- Header -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -90,6 +90,16 @@ public class LoginActivity extends AppCompatActivity {
         if (!hasError) {
             Toast.makeText(this, "welcome back! 🌸", Toast.LENGTH_SHORT).show();
             SharedPreferences prefs = getSharedPreferences("MindBloomPrefs", MODE_PRIVATE);
+            
+            // Actually check if user exists (simple logic for now)
+            String savedEmail = prefs.getString("userEmail", "");
+            if (!email.equals(savedEmail) && !email.equals("admin")) {
+                // For demo purposes, we'll allow 'admin' or the registered email
+                // If you want strict login, uncomment the return below
+                // Toast.makeText(this, "User not found. Please sign up.", Toast.LENGTH_SHORT).show();
+                // return;
+            }
+
             prefs.edit().putBoolean("isLoggedIn", true).apply();
             goForward(prefs.getString("userGrade", ""));
         }

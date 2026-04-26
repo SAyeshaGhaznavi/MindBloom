@@ -1,6 +1,9 @@
 package com.example.mindbloom;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -12,6 +15,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
     private TextView tvStudentName, tvGrade;
     private EditText etEmail;
     private Switch switchVoiceControl, switchHighContrast, switchLargeText;
+    private Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +33,16 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         switchVoiceControl = findViewById(R.id.switchVoiceControl);
         switchHighContrast = findViewById(R.id.switchHighContrast);
         switchLargeText = findViewById(R.id.switchLargeText);
+        btnLogout = findViewById(R.id.btnLogout);
 
-        tvStudentName.setText("alex johnson");
-        tvGrade.setText("high school · grades 9-12");
-        etEmail.setText("alex@email.com");
+        SharedPreferences prefs = getSharedPreferences("MindBloomPrefs", MODE_PRIVATE);
+        String name = prefs.getString("userName", "student name");
+        String grade = prefs.getString("userGrade", "grade level");
+        String email = prefs.getString("userEmail", "student@email.com");
+
+        tvStudentName.setText(name);
+        tvGrade.setText(grade);
+        etEmail.setText(email);
     }
 
     private void setupListeners() {
@@ -54,6 +64,22 @@ public class ProfileSettingsActivity extends AppCompatActivity {
             if (isChecked) {
                 Toast.makeText(this, "large text on 🔤", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        btnLogout.setOnClickListener(v -> {
+            SharedPreferences prefs = getSharedPreferences("MindBloomPrefs", MODE_PRIVATE);
+            prefs.edit()
+                .putBoolean("isLoggedIn", false)
+                .putBoolean("onboardingDone", false)
+                .putString("userName", "")
+                .putString("userEmail", "")
+                .putString("userGrade", "")
+                .apply();
+
+            Intent intent = new Intent(this, SplashActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
         });
     }
 }

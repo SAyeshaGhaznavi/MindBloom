@@ -115,8 +115,13 @@ public class SignUpActivity extends AppCompatActivity {
 
         if (!hasError) {
             Toast.makeText(this, "welcome to MindBloom! 🌸", Toast.LENGTH_SHORT).show();
+            getSharedPreferences("MindBloomPrefs", MODE_PRIVATE)
+                .edit()
+                .putString("userName", name)
+                .putString("userEmail", email)
+                .apply();
+
             Intent intent = new Intent(SignUpActivity.this, GradeSelectionActivity.class);
-            intent.putExtra("userName", name);
             startActivity(intent);
         }
     }

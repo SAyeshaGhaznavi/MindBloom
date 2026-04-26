@@ -3,15 +3,14 @@ package com.example.mindbloom;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DashboardActivity extends AppCompatActivity {
 
     private TextView tvWelcome;
-    private LinearLayout cardSubjects, cardHomework, cardLectures, cardQuizzes, layoutProfile;
+    private LinearLayout cardSubjects, cardHomework, cardLectures, cardQuizzes,
+                         layoutProfile, layoutSettings;
     private Button btnViewProgress;
 
     @Override
@@ -35,6 +34,7 @@ public class DashboardActivity extends AppCompatActivity {
         cardLectures    = findViewById(R.id.cardLectures);
         cardQuizzes     = findViewById(R.id.cardQuizzes);
         layoutProfile   = findViewById(R.id.layoutProfile);
+        layoutSettings  = findViewById(R.id.layoutSettings);
         btnViewProgress = findViewById(R.id.btnViewProgress);
         updateWelcome();
     }
@@ -46,9 +46,11 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void setupClickListeners() {
-
         layoutProfile.setOnClickListener(v ->
             startActivity(new Intent(this, ProfileSettingsActivity.class)));
+
+        layoutSettings.setOnClickListener(v ->
+            startActivity(new Intent(this, SettingsActivity.class)));
 
         btnViewProgress.setOnClickListener(v ->
             startActivity(new Intent(this, ProgressActivity.class)));
