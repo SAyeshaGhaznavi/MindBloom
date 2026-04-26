@@ -11,32 +11,59 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MindBloom">
-
-        <activity android:name=".SplashActivity"
-            android:theme="@style/Theme.MindBloom.Splash"
-            android:exported="true">
+        <activity
+            android:name=".AttachActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MindBloom.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".OnboardingActivity" android:exported="false" />
-        <activity android:name=".LoginActivity"    android:exported="false" />
-        <activity android:name=".SignUpActivity"   android:exported="false" />
-        <activity android:name=".GradeSelectionActivity" android:exported="false" />
-        <activity android:name=".DashboardActivity"
+        <activity
+            android:name=".OnboardingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GradeSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardActivity"
             android:exported="false"
             android:launchMode="singleTop" />
-        <activity android:name=".SubjectSelectionActivity" android:exported="false" />
-        <activity android:name=".LessonActivity"   android:exported="false" />
-        <activity android:name=".QuizActivity"     android:exported="false" />
-        <activity android:name=".HomeworkActivity" android:exported="false" />
-        <activity android:name=".ProgressActivity" android:exported="false" />
-        <activity android:name=".ProfileSettingsActivity" android:exported="false" />
-        <activity android:name=".SettingsActivity" android:exported="false" />
-        <activity android:name=".MainActivity"     android:exported="false" />
-
+        <activity
+            android:name=".SubjectSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LessonActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeworkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProgressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileSettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

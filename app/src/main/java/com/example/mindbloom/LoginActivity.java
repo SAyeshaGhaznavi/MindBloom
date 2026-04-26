@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
     private void goForward(String savedGrade) {
         Intent intent;
         if (savedGrade != null && !savedGrade.isEmpty()) {
-            intent = new Intent(this, DashboardActivity.class);
+            intent = new Intent(this, AttachActivity.class);
         } else {
             intent = new Intent(this, GradeSelectionActivity.class);
         }

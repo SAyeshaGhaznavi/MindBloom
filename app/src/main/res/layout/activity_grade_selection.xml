@@ -15,9 +15,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="what's your grade?"
+            android:text="what's your category"
             android:textSize="28sp"
-            android:textColor="@color/text_dark"
+            android:textColor="#6C3FC5"
             android:fontFamily="sans-serif-light"
             android:layout_marginBottom="8dp" />
 
@@ -28,7 +28,65 @@
             android:textSize="14sp"
             android:textColor="@color/text_light"
             android:fontFamily="sans-serif-light"
-            android:layout_marginBottom="40dp" />
+            android:layout_marginBottom="24dp" />
+
+        <!-- Top Row: Voice Setup & Sign Language -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="32dp">
+
+            <!-- Voice Setup Button -->
+            <LinearLayout
+                android:id="@+id/layoutVoiceSetup"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/grade_option_bg"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎙️ Voice Setup"
+                    android:textSize="14sp"
+                    android:textColor="#5E35B1"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+
+            <!-- Sign Language Video Toggle -->
+            <LinearLayout
+                android:id="@+id/layoutSignLanguage"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/grade_option_bg"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🤟 Sign Video"
+                    android:textSize="14sp"
+                    android:textColor="#00695C"
+                    android:fontFamily="sans-serif-medium" />
+
+                <Switch
+                    android:id="@+id/switchSignLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
 
         <!-- Primary School -->
         <LinearLayout
@@ -54,20 +112,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="primary school"
+                    android:text="🟣  primary school"
                     android:textSize="16sp"
-                    android:textColor="@color/text_dark"
-                    android:fontFamily="sans-serif-light" />
+                    android:textColor="#6A1B9A"
+                    android:fontFamily="sans-serif-medium" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="grades 1-5"
                     android:textSize="12sp"
-                    android:textColor="@color/text_light"
+                    android:textColor="#9C27B0"
                     android:fontFamily="sans-serif-light" />
             </LinearLayout>
-
         </LinearLayout>
 
         <!-- Middle School -->
@@ -94,20 +151,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="middle school"
+                    android:text="🔵  middle school"
                     android:textSize="16sp"
-                    android:textColor="@color/text_dark"
-                    android:fontFamily="sans-serif-light" />
+                    android:textColor="#1565C0"
+                    android:fontFamily="sans-serif-medium" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="grades 6-8"
                     android:textSize="12sp"
-                    android:textColor="@color/text_light"
+                    android:textColor="#1E88E5"
                     android:fontFamily="sans-serif-light" />
             </LinearLayout>
-
         </LinearLayout>
 
         <!-- High School -->
@@ -134,25 +190,63 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="high school"
+                    android:text="🟢  high school"
                     android:textSize="16sp"
-                    android:textColor="@color/text_dark"
-                    android:fontFamily="sans-serif-light" />
+                    android:textColor="#2E7D32"
+                    android:fontFamily="sans-serif-medium" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="grades 9-12"
                     android:textSize="12sp"
-                    android:textColor="@color/text_light"
+                    android:textColor="#43A047"
                     android:fontFamily="sans-serif-light" />
             </LinearLayout>
-
         </LinearLayout>
 
         <!-- University -->
         <LinearLayout
             android:id="@+id/layoutUniversity"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/grade_option_bg"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🟠  university / college"
+                    android:textSize="16sp"
+                    android:textColor="#E65100"
+                    android:fontFamily="sans-serif-medium" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="higher education"
+                    android:textSize="12sp"
+                    android:textColor="#F57C00"
+                    android:fontFamily="sans-serif-light" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Special Needs -->
+        <LinearLayout
+            android:id="@+id/layoutSpecial"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:background="@drawable/grade_option_bg"
@@ -174,20 +268,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="university / college"
+                    android:text="💛  special needs"
                     android:textSize="16sp"
-                    android:textColor="@color/text_dark"
-                    android:fontFamily="sans-serif-light" />
+                    android:textColor="#F9A825"
+                    android:fontFamily="sans-serif-medium" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="higher education"
+                    android:text="accessible learning"
                     android:textSize="12sp"
-                    android:textColor="@color/text_light"
+                    android:textColor="#FBC02D"
                     android:fontFamily="sans-serif-light" />
             </LinearLayout>
-
         </LinearLayout>
 
         <Button

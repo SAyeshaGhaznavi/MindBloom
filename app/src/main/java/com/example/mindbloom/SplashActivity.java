@@ -42,7 +42,7 @@ public class SplashActivity extends AppCompatActivity {
                 }
             } else {
                 // 3. Logged in? Go to Dashboard
-                intent = new Intent(this, DashboardActivity.class);
+                intent = new Intent(this, AttachActivity.class);
             }
 
             startActivity(intent);

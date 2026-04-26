@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class GradeSelectionActivity extends AppCompatActivity {
 
-    private LinearLayout layoutPrimary, layoutMiddle, layoutHigh, layoutUniversity;
+    private LinearLayout layoutPrimary, layoutMiddle, layoutHigh, layoutUniversity, layoutSpecial;
     private Button btnContinue;
     private String selectedGrade = "";
 
@@ -36,6 +36,7 @@ public class GradeSelectionActivity extends AppCompatActivity {
         layoutMiddle     = findViewById(R.id.layoutMiddle);
         layoutHigh       = findViewById(R.id.layoutHigh);
         layoutUniversity = findViewById(R.id.layoutUniversity);
+        layoutSpecial    = findViewById(R.id.layoutSpecial);
         btnContinue      = findViewById(R.id.btnContinue);
     }
 
@@ -60,6 +61,11 @@ public class GradeSelectionActivity extends AppCompatActivity {
             layoutUniversity.setBackgroundResource(R.drawable.grade_option_selected_bg);
             selectedGrade = "University / College";
         });
+        layoutSpecial.setOnClickListener(v -> {
+            resetAllSelections();
+            layoutSpecial.setBackgroundResource(R.drawable.grade_option_selected_bg);
+            selectedGrade = "Special Needs";
+        });
 
         btnContinue.setOnClickListener(v -> {
             if (selectedGrade.isEmpty()) {
@@ -74,7 +80,7 @@ public class GradeSelectionActivity extends AppCompatActivity {
     }
 
     private void goToDashboard() {
-        Intent intent = new Intent(GradeSelectionActivity.this, DashboardActivity.class);
+        Intent intent = new Intent(GradeSelectionActivity.this, AttachActivity.class);
         // Clear back stack so pressing Back on Dashboard exits the app
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
@@ -86,5 +92,6 @@ public class GradeSelectionActivity extends AppCompatActivity {
         layoutMiddle.setBackgroundResource(R.drawable.grade_option_bg);
         layoutHigh.setBackgroundResource(R.drawable.grade_option_bg);
         layoutUniversity.setBackgroundResource(R.drawable.grade_option_bg);
+        layoutSpecial.setBackgroundResource(R.drawable.grade_option_bg);
     }
 }
