@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="10dp">
 
         <ImageButton
             android:id="@+id/btnBack"
@@ -41,6 +41,17 @@
             android:textColor="#F5A623"
             android:textStyle="bold" />
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvSubjectLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="General Quiz"
+        android:textSize="16sp"
+        android:textColor="#4A90D9"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="10dp" />
 
     <!-- Progress bar showing which question you're on -->
     <ProgressBar

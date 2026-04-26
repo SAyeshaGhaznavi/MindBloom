@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MindBloom</string>
     <string name="homework">Homework</string>
+    <string name="view_details">View Details</string>
 </resources>

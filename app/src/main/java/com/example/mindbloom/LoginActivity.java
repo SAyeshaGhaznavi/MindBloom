@@ -1,6 +1,7 @@
 package com.example.mindbloom;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -23,56 +24,55 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
 
+        // If already logged in, skip straight to Dashboard
+        SharedPreferences prefs = getSharedPreferences("MindBloomPrefs", MODE_PRIVATE);
+        if (prefs.getBoolean("isLoggedIn", false)) {
+            goForward(prefs.getString("userGrade", ""));
+            return;
+        }
+
+        setContentView(R.layout.activity_login);
         initializeViews();
         setupListeners();
     }
 
     private void initializeViews() {
-        etEmail = findViewById(R.id.etEmail);
-        etPassword = findViewById(R.id.etPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-        tvSignUp = findViewById(R.id.tvSignUp);
-        tvEmailError = findViewById(R.id.tvEmailError);
-        tvPasswordError = findViewById(R.id.tvPasswordError);
-        emailErrorLayout = findViewById(R.id.emailErrorLayout);
+        etEmail           = findViewById(R.id.etEmail);
+        etPassword        = findViewById(R.id.etPassword);
+        btnLogin          = findViewById(R.id.btnLogin);
+        tvSignUp          = findViewById(R.id.tvSignUp);
+        tvEmailError      = findViewById(R.id.tvEmailError);
+        tvPasswordError   = findViewById(R.id.tvPasswordError);
+        emailErrorLayout    = findViewById(R.id.emailErrorLayout);
         passwordErrorLayout = findViewById(R.id.passwordErrorLayout);
     }
 
     private void setupListeners() {
         btnLogin.setOnClickListener(v -> validateAndLogin());
 
-        tvSignUp.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
-            startActivity(intent);
-        });
+        tvSignUp.setOnClickListener(v ->
+            startActivity(new Intent(LoginActivity.this, SignUpActivity.class)));
 
         etEmail.addTextChangedListener(new TextWatcher() {
-            @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 emailErrorLayout.setVisibility(View.GONE);
             }
-            @Override
             public void afterTextChanged(Editable s) {}
         });
 
         etPassword.addTextChangedListener(new TextWatcher() {
-            @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 passwordErrorLayout.setVisibility(View.GONE);
             }
-            @Override
             public void afterTextChanged(Editable s) {}
         });
     }
 
     private void validateAndLogin() {
-        String email = etEmail.getText().toString().trim();
+        String email    = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
         boolean hasError = false;
 
@@ -81,7 +81,6 @@ public class LoginActivity extends AppCompatActivity {
             emailErrorLayout.setVisibility(View.VISIBLE);
             hasError = true;
         }
-
         if (TextUtils.isEmpty(password)) {
             tvPasswordError.setText("✦ please enter your password");
             passwordErrorLayout.setVisibility(View.VISIBLE);
@@ -90,9 +89,22 @@ public class LoginActivity extends AppCompatActivity {
 
         if (!hasError) {
             Toast.makeText(this, "welcome back! 🌸", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(LoginActivity.this, GradeSelectionActivity.class);
-            startActivity(intent);
-            finish();
+            SharedPreferences prefs = getSharedPreferences("MindBloomPrefs", MODE_PRIVATE);
+            prefs.edit().putBoolean("isLoggedIn", true).apply();
+            goForward(prefs.getString("userGrade", ""));
         }
+    }
+
+    /** If grade already chosen → Dashboard; otherwise → GradeSelection */
+    private void goForward(String savedGrade) {
+        Intent intent;
+        if (savedGrade != null && !savedGrade.isEmpty()) {
+            intent = new Intent(this, DashboardActivity.class);
+        } else {
+            intent = new Intent(this, GradeSelectionActivity.class);
+        }
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 }

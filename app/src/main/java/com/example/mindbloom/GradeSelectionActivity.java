@@ -1,8 +1,8 @@
 package com.example.mindbloom;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -17,18 +17,26 @@ public class GradeSelectionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_grade_selection);
 
+        // ── Skip this screen if grade already saved ──────────────────────────
+        SharedPreferences prefs = getSharedPreferences("MindBloomPrefs", MODE_PRIVATE);
+        String savedGrade = prefs.getString("userGrade", "");
+        if (!savedGrade.isEmpty()) {
+            goToDashboard();
+            return;
+        }
+
+        setContentView(R.layout.activity_grade_selection);
         initializeViews();
         setupListeners();
     }
 
     private void initializeViews() {
-        layoutPrimary = findViewById(R.id.layoutPrimary);
-        layoutMiddle = findViewById(R.id.layoutMiddle);
-        layoutHigh = findViewById(R.id.layoutHigh);
+        layoutPrimary    = findViewById(R.id.layoutPrimary);
+        layoutMiddle     = findViewById(R.id.layoutMiddle);
+        layoutHigh       = findViewById(R.id.layoutHigh);
         layoutUniversity = findViewById(R.id.layoutUniversity);
-        btnContinue = findViewById(R.id.btnContinue);
+        btnContinue      = findViewById(R.id.btnContinue);
     }
 
     private void setupListeners() {
@@ -37,19 +45,16 @@ public class GradeSelectionActivity extends AppCompatActivity {
             layoutPrimary.setBackgroundResource(R.drawable.grade_option_selected_bg);
             selectedGrade = "Primary School";
         });
-
         layoutMiddle.setOnClickListener(v -> {
             resetAllSelections();
             layoutMiddle.setBackgroundResource(R.drawable.grade_option_selected_bg);
             selectedGrade = "Middle School";
         });
-
         layoutHigh.setOnClickListener(v -> {
             resetAllSelections();
             layoutHigh.setBackgroundResource(R.drawable.grade_option_selected_bg);
             selectedGrade = "High School";
         });
-
         layoutUniversity.setOnClickListener(v -> {
             resetAllSelections();
             layoutUniversity.setBackgroundResource(R.drawable.grade_option_selected_bg);
@@ -61,11 +66,19 @@ public class GradeSelectionActivity extends AppCompatActivity {
                 Toast.makeText(this, "please select your grade ✨", Toast.LENGTH_SHORT).show();
                 return;
             }
-
-            Intent intent = new Intent(GradeSelectionActivity.this, DashboardActivity.class);
-            intent.putExtra("grade", selectedGrade);
-            startActivity(intent);
+            // Save grade so we never show this screen again
+            getSharedPreferences("MindBloomPrefs", MODE_PRIVATE)
+                    .edit().putString("userGrade", selectedGrade).apply();
+            goToDashboard();
         });
+    }
+
+    private void goToDashboard() {
+        Intent intent = new Intent(GradeSelectionActivity.this, DashboardActivity.class);
+        // Clear back stack so pressing Back on Dashboard exits the app
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
     private void resetAllSelections() {

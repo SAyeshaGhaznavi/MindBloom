@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/feature_card_bg"
+    android:layout_marginBottom="10dp"
+    android:padding="14dp"
+    android:gravity="center_vertical"
+    android:elevation="2dp">
+
+    <CheckBox
+        android:id="@+id/cbHomework"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:buttonTint="@color/primary_color"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvHomeworkTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Homework Title"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_dark"
+            android:layout_marginBottom="2dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvHomeworkSubject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Math"
+                android:textSize="11sp"
+                android:textColor="@color/primary_color"
+                android:background="@drawable/bubble_card_bg"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/tvHomeworkDue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Due: Tomorrow"
+                android:textSize="11sp"
+                android:textColor="@color/text_light"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvHomeworkPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+20 pts"
+        android:textSize="12sp"
+        android:textColor="@color/success"
+        android:textStyle="bold"/>
+
+</LinearLayout>

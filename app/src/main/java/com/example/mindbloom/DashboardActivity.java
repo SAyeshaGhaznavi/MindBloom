@@ -1,56 +1,77 @@
 package com.example.mindbloom;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DashboardActivity extends AppCompatActivity {
 
     private TextView tvWelcome;
     private LinearLayout cardSubjects, cardHomework, cardLectures, cardQuizzes, layoutProfile;
+    private Button btnViewProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
         initializeViews();
         setupClickListeners();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateWelcome();
+    }
+
     private void initializeViews() {
-        tvWelcome     = findViewById(R.id.tvWelcome);
-        cardSubjects  = findViewById(R.id.cardSubjects);
-        cardHomework  = findViewById(R.id.cardHomework);
-        cardLectures  = findViewById(R.id.cardLectures);
-        cardQuizzes   = findViewById(R.id.cardQuizzes);
-        layoutProfile = findViewById(R.id.layoutProfile);
+        tvWelcome       = findViewById(R.id.tvWelcome);
+        cardSubjects    = findViewById(R.id.cardSubjects);
+        cardHomework    = findViewById(R.id.cardHomework);
+        cardLectures    = findViewById(R.id.cardLectures);
+        cardQuizzes     = findViewById(R.id.cardQuizzes);
+        layoutProfile   = findViewById(R.id.layoutProfile);
+        btnViewProgress = findViewById(R.id.btnViewProgress);
+        updateWelcome();
+    }
+
+    private void updateWelcome() {
+        SharedPreferences prefs = getSharedPreferences("MindBloomPrefs", MODE_PRIVATE);
+        String name = prefs.getString("userName", "");
+        tvWelcome.setText(name.isEmpty() ? "Let's Learn!" : "Hey " + name + "! 🌸");
     }
 
     private void setupClickListeners() {
 
-        // Profile icon → ProfileSettings
-        layoutProfile.setOnClickListener(v -> {
-            startActivity(new Intent(DashboardActivity.this, ProfileSettingsActivity.class));
+        layoutProfile.setOnClickListener(v ->
+            startActivity(new Intent(this, ProfileSettingsActivity.class)));
+
+        btnViewProgress.setOnClickListener(v ->
+            startActivity(new Intent(this, ProgressActivity.class)));
+
+        cardSubjects.setOnClickListener(v -> {
+            Intent i = new Intent(this, SubjectSelectionActivity.class);
+            i.putExtra("mode", "lesson");
+            startActivity(i);
         });
 
-        // Quizzes card → QuizActivity (Math as default subject)
+        cardHomework.setOnClickListener(v ->
+            startActivity(new Intent(this, HomeworkActivity.class)));
+
+        cardLectures.setOnClickListener(v -> {
+            Intent i = new Intent(this, SubjectSelectionActivity.class);
+            i.putExtra("mode", "lesson");
+            startActivity(i);
+        });
+
         cardQuizzes.setOnClickListener(v -> {
-            Intent intent = new Intent(DashboardActivity.this, QuizActivity.class);
-            intent.putExtra("subject", "Math");
-            startActivity(intent);
+            Intent i = new Intent(this, SubjectSelectionActivity.class);
+            i.putExtra("mode", "quiz");
+            startActivity(i);
         });
-
-        // Other cards — coming soon for now
-        cardSubjects.setOnClickListener(v -> showComingSoon("Subjects 📚"));
-        cardHomework.setOnClickListener(v -> showComingSoon("Homework ✏️"));
-        cardLectures.setOnClickListener(v -> showComingSoon("Lectures 🎥"));
-    }
-
-    private void showComingSoon(String feature) {
-        Toast.makeText(this, feature + " coming soon! 🌸", Toast.LENGTH_SHORT).show();
     }
 }
