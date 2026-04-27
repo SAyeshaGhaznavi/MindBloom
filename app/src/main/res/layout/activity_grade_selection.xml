@@ -54,7 +54,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🎙️ Voice Setup"
+                    android:text="Voice Setup"
                     android:textSize="14sp"
                     android:textColor="#5E35B1"
                     android:fontFamily="sans-serif-medium" />
@@ -76,7 +76,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="🤟 Sign Video"
+                    android:text="Sign Video"
                     android:textSize="14sp"
                     android:textColor="#00695C"
                     android:fontFamily="sans-serif-medium" />
@@ -112,7 +112,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🟣  primary school"
+                    android:text=" primary school"
                     android:textSize="16sp"
                     android:textColor="#6A1B9A"
                     android:fontFamily="sans-serif-medium" />
@@ -151,7 +151,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🔵  middle school"
+                    android:text="middle school"
                     android:textSize="16sp"
                     android:textColor="#1565C0"
                     android:fontFamily="sans-serif-medium" />
@@ -190,7 +190,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🟢  high school"
+                    android:text="high school"
                     android:textSize="16sp"
                     android:textColor="#2E7D32"
                     android:fontFamily="sans-serif-medium" />
@@ -229,7 +229,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🟠  university / college"
+                    android:text="university / college"
                     android:textSize="16sp"
                     android:textColor="#E65100"
                     android:fontFamily="sans-serif-medium" />
@@ -268,7 +268,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="💛  special needs"
+                    android:text="special needs"
                     android:textSize="16sp"
                     android:textColor="#F9A825"
                     android:fontFamily="sans-serif-medium" />
