@@ -18,20 +18,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="12dp"
             android:fontFamily="sans-serif-light"
             android:text="Welcome Back"
-            android:textColor="@color/text_dark"
-            android:textSize="28sp" />
+            android:textStyle="bold"
+            android:textColor="#896bb0"
+            android:textSize="33sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="48dp"
             android:fontFamily="sans-serif-light"
-            android:text="sign in to continue"
-            android:textColor="@color/text_light"
-            android:textSize="14sp" />
+            android:text="Sign in to continue"
+            android:textColor="#958ba3"
+            android:textSize="18sp" />
 
         <!-- Email Input -->
         <LinearLayout
@@ -136,7 +137,7 @@
             android:background="@drawable/bubble_button_bg"
             android:elevation="2dp"
             android:fontFamily="sans-serif-light"
-            android:text="sign in"
+            android:text="Sign In"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
@@ -151,9 +152,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
-                android:text="new here? "
+                android:text="New here? "
                 android:textColor="@color/text_light"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvSignUp"
@@ -162,9 +163,9 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:fontFamily="sans-serif-light"
-                android:text="create account"
-                android:textColor="@color/primary_color"
-                android:textSize="14sp" />
+                android:text="Create Account"
+                android:textColor="#633dd4"
+                android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>

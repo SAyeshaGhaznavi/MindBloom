@@ -106,8 +106,8 @@
             android:id="@+id/audioSeekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:progressTint="#FF6D00"
-            android:thumbTint="#FF1744"
+            android:progressTint="#4a1f82"
+            android:thumbTint="#4a1f82"
             android:max="225"/>
 
         <LinearLayout
@@ -238,8 +238,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:progressTint="#FF6D00"
-                android:thumbTint="#FF1744"
+                android:progressTint="#9d72d6"
+                android:thumbTint="#9d72d6"
                 android:max="100"
                 android:progress="75"/>
         </LinearLayout>
@@ -265,8 +265,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:progressTint="#FF6D00"
-                android:thumbTint="#FF1744"
+                android:progressTint="#9d72d6"
+                android:thumbTint="#9d72d6"
                 android:max="200"
                 android:progress="100"/>
 
@@ -301,7 +301,7 @@
                 android:id="@+id/switchInterpreter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:thumbTint="#00C853"
+                android:thumbTint="#4a1f82"
                 android:trackTint="#A5D6A7"/>
         </LinearLayout>
 
@@ -328,7 +328,7 @@
                 android:layout_height="wrap_content"
                 android:text="10:00"
                 android:textSize="20sp"
-                android:textColor="#FF1744"
+                android:textColor="#4a1f82"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-medium"
                 android:layout_marginEnd="12dp"/>
@@ -357,8 +357,8 @@
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
             android:text="← Prev"
-            android:backgroundTint="#FFD54F"
-            android:textColor="#FF6D00"
+            android:backgroundTint="#c1a2eb"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"/>
 
         <Button
@@ -368,7 +368,7 @@
             android:layout_weight="1"
             android:layout_marginStart="8dp"
             android:text="Next →"
-            android:backgroundTint="#FF6D00"
+            android:backgroundTint="#896bb0"
             android:textColor="#FFFFFF"
             android:textStyle="bold"/>
     </LinearLayout>

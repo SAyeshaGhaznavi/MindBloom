@@ -35,7 +35,7 @@
         android:id="@+id/tagline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="bloom your mind"
+        android:text="Bloom your mind"
         android:textSize="15sp"
         android:textColor="@color/text_medium"
         android:fontFamily="sans-serif-light"
