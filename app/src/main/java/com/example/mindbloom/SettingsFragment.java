@@ -46,20 +46,25 @@ public class SettingsFragment extends Fragment {
 
         SharedPreferences prefs = requireContext().getSharedPreferences("MindBloomPrefs", Context.MODE_PRIVATE);
 
-        // Dark mode
+        // 1. Dark Mode Switch
         boolean isDark = prefs.getBoolean("darkMode", false);
         switchDarkMode.setChecked(isDark);
+
         switchDarkMode.setOnCheckedChangeListener((btn, checked) -> {
             prefs.edit().putBoolean("darkMode", checked).apply();
+
+            // This triggers the UI to recreate and use values-night/colors.xml
             AppCompatDelegate.setDefaultNightMode(
-                    checked ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+                    checked ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
+            );
         });
 
-        // Font size (0=Small, 1=Medium, 2=Large)
+        // 2. Font Size
         int fontSize = prefs.getInt("fontSize", 1);
         seekBarFont.setMax(2);
         seekBarFont.setProgress(fontSize);
         updateFontPreview(fontSize);
+
         seekBarFont.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar s, int p, boolean u) {
                 prefs.edit().putInt("fontSize", p).apply();
@@ -69,22 +74,22 @@ public class SettingsFragment extends Fragment {
             public void onStopTrackingTouch(SeekBar s) {}
         });
 
-        // High contrast
+        // 3. Contrast
         int contrast = prefs.getInt("contrast", 0);
         if (contrast == 1) rgContrast.check(R.id.rbHighContrast);
         else rgContrast.check(R.id.rbNormalContrast);
+
         rgContrast.setOnCheckedChangeListener((g, id) ->
-                prefs.edit().putInt("contrast", id == R.id.rbHighContrast ? 1 : 0).apply());
+                prefs.edit().putInt("contrast", id == R.id.rbHighContrast ? 1 : 0).apply()
+        );
 
-        // Breadcrumb
-        tvBreadcrumb.setText("Home > Settings");
-
-        // Back (Using onBackPressed since finish() doesn't exist in Fragments)
+        // 4. Back button
         tvBack.setOnClickListener(v -> requireActivity().onBackPressed());
 
-        // FAQ card
+        // 5. FAQ Card
         view.findViewById(R.id.cardFaq).setOnClickListener(v ->
-                startActivity(new Intent(requireActivity(), FaqActivity.class)));
+                startActivity(new Intent(requireActivity(), FaqActivity.class))
+        );
     }
 
     private void updateFontPreview(int level) {
@@ -98,6 +103,7 @@ public class SettingsFragment extends Fragment {
         SharedPreferences prefs = requireContext().getSharedPreferences("MindBloomPrefs", Context.MODE_PRIVATE);
         boolean isDark = prefs.getBoolean("darkMode", false);
         AppCompatDelegate.setDefaultNightMode(
-                isDark ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+                isDark ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
+        );
     }
 }
