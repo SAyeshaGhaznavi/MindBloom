@@ -38,10 +38,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="My Progress 📊"
+                android:text="My Progress "
+                android:textColor="@color/text_dark"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_dark"/>
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <!-- Stats row -->
@@ -64,7 +64,7 @@
                     android:id="@+id/tvTotalPoints"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="⭐ 0 pts"
+                    android:text="0 pts"
                     android:textColor="@color/primary_color"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -116,7 +116,7 @@
                     android:id="@+id/tvStreak"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🔥 0"
+                    android:text="0"
                     android:textColor="@color/primary_color"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -152,7 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="🌱 Seedling"
+                android:text="Seedling"
                 android:textColor="@color/text_dark"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -194,7 +194,7 @@
                 <TextView
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:text="➕ Math"
+                    android:text="Math"
                     android:textColor="@color/text_dark"
                     android:textSize="13sp" />
 
@@ -228,7 +228,7 @@
                 <TextView
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:text="📝 Eng"
+                    android:text="Eng"
                     android:textColor="@color/text_dark"
                     android:textSize="13sp" />
 
@@ -262,7 +262,7 @@
                 <TextView
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:text="🔬 Sci"
+                    android:text="Sci"
                     android:textColor="@color/text_dark"
                     android:textSize="13sp" />
 
@@ -296,7 +296,7 @@
                 <TextView
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:text="🇵🇰 Urdu"
+                    android:text="Urdu"
                     android:textColor="@color/text_dark"
                     android:textSize="13sp" />
 
@@ -330,7 +330,7 @@
                 <TextView
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:text="🏛️ Hist"
+                    android:text="Hist"
                     android:textColor="@color/text_dark"
                     android:textSize="13sp" />
 
@@ -363,7 +363,7 @@
                 <TextView
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
-                    android:text="🎨 Art"
+                    android:text="Art"
                     android:textColor="@color/text_dark"
                     android:textSize="13sp" />
 
@@ -417,13 +417,12 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/badgeFirstQuiz"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:gravity="center"
-                        android:text="🎯"
-                        android:textSize="32sp" />
+                        android:src="@drawable/bullseye" />
 
                     <TextView
                         android:id="@+id/tvBadgeFirstQuiz"
@@ -442,13 +441,12 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/badgeStreak3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:gravity="center"
-                        android:text="🔥"
-                        android:textSize="32sp" />
+                        android:src="@drawable/fire" />
 
                     <TextView
                         android:id="@+id/tvBadgeStreak3"
@@ -467,13 +465,12 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/badgeStreak7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:gravity="center"
-                        android:text="🌟"
-                        android:textSize="32sp" />
+                        android:src="@drawable/star" />
 
                     <TextView
                         android:id="@+id/tvBadgeStreak7"
@@ -498,13 +495,12 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/badge100Points"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:gravity="center"
-                        android:text="💯"
-                        android:textSize="32sp" />
+                        android:src="@drawable/anniversary"/>
 
                     <TextView
                         android:id="@+id/tvBadge100Points"
@@ -523,13 +519,12 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/badge500Points"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:gravity="center"
-                        android:text="🏆"
-                        android:textSize="32sp" />
+                        android:src="@drawable/trophy" />
 
                     <TextView
                         android:id="@+id/tvBadge500Points"
@@ -548,13 +543,12 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/badgeAllSubjects"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:gravity="center"
-                        android:text="🌸"
-                        android:textSize="32sp" />
+                        android:src="@drawable/sakura" />
 
                     <TextView
                         android:id="@+id/tvBadgeAllSubjects"
