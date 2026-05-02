@@ -33,7 +33,7 @@
                 android:gravity="center_vertical"
                 android:layout_marginBottom="24dp">
 
-                <TextView
+                <ImageButton
                     android:id="@+id/tvBack"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -44,10 +44,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="sans-serif-light"
                     android:text="Settings "
                     android:textColor="@color/text_dark"
-                    android:textSize="22sp"
-                    android:fontFamily="sans-serif-light"/>
+                    android:textSize="22sp" />
             </LinearLayout>
 
             <!-- 1. APPEARANCE -->
