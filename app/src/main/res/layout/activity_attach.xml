@@ -16,12 +16,12 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#5064E4"
+        android:background="@drawable/soft_gradient_card_bg"
         app:tabGravity="fill"
         app:tabIndicatorColor="#6C3FC5"
         app:tabIndicatorGravity="bottom"
         app:tabMode="fixed"
         app:tabSelectedTextColor="#6C3FC5"
-        app:tabTextColor="#999999" />
+        app:tabTextColor="#000000" />
 
 </LinearLayout>

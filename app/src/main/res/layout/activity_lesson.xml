@@ -58,7 +58,6 @@
         android:layout_weight="1"
         android:layout_marginBottom="12dp"
         app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
         app:cardBackgroundColor="#FFFFFF">
 
         <ScrollView
@@ -93,56 +92,6 @@
         </ScrollView>
     </androidx.cardview.widget.CardView>
 
-    <!-- Audio Player -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/feature_card_bg"
-        android:orientation="vertical"
-        android:padding="12dp"
-        android:layout_marginBottom="8dp">
-
-        <SeekBar
-            android:id="@+id/audioSeekBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:progressTint="#4a1f82"
-            android:thumbTint="#4a1f82"
-            android:max="225"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/tvAudioTime"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="0:00"
-                android:textSize="11sp"
-                android:textColor="#D500F9"/>
-
-            <ImageButton
-                android:id="@+id/btnAudioPlay"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:background="@drawable/circle_icon_bg"
-                android:src="@android:drawable/ic_media_play"
-                android:contentDescription="Play"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="3:45"
-                android:textSize="11sp"
-                android:textColor="#D500F9"
-                android:gravity="end"/>
-        </LinearLayout>
-    </LinearLayout>
 
     <!-- Multimedia Settings -->
     <LinearLayout

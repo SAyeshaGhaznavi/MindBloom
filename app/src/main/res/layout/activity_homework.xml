@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/bg_main"
+    android:background="#F0ECFF"
     android:padding="24dp">
 
     <!-- Breadcrumb -->
@@ -58,8 +58,7 @@
         android:background="@drawable/soft_gradient_card_bg"
         android:orientation="vertical"
         android:padding="16dp"
-        android:layout_marginBottom="16dp"
-        android:elevation="3dp">
+        android:layout_marginBottom="16dp">
 
         <TextView
             android:id="@+id/tvHomeworkProgress"

@@ -22,7 +22,7 @@ public class ProfileFragment extends Fragment {
     private TextView tvStudentName, tvGrade;
     private EditText etEmail;
     private Switch switchVoiceControl, switchHighContrast, switchLargeText;
-    private Button btnLogout;
+    private Button btnLogout, btnConfirm;
     private LinearLayout layoutParentSettings;
 
     // 1. Declare the Help & FAQ layout
@@ -49,6 +49,7 @@ public class ProfileFragment extends Fragment {
         switchHighContrast = view.findViewById(R.id.switchHighContrast);
         switchLargeText = view.findViewById(R.id.switchLargeText);
         btnLogout = view.findViewById(R.id.btnLogout);
+        btnConfirm = view.findViewById(R.id.btnConfirm);
         layoutParentSettings = view.findViewById(R.id.layoutParentSettings);
 
         // 2. Initialize it
@@ -93,6 +94,10 @@ public class ProfileFragment extends Fragment {
             if (isChecked) {
                 Toast.makeText(requireContext(), "large text on 🔤", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        btnConfirm.setOnClickListener(v ->{
+            Toast.makeText(requireContext(), "Changes made successfully",Toast.LENGTH_SHORT).show();
         });
 
         btnLogout.setOnClickListener(v -> {

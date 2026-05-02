@@ -48,15 +48,12 @@ public class LessonActivity extends AppCompatActivity {
         btnNext        = findViewById(R.id.btnLessonNext);
         btnTakeQuiz    = findViewById(R.id.btnTakeQuiz);
 
-        btnAudioPlay       = findViewById(R.id.btnAudioPlay);
         btnTimerToggle     = findViewById(R.id.btnTimerToggle);
-        audioSeekBar       = findViewById(R.id.audioSeekBar);
         seekBarAudio       = findViewById(R.id.seekBarAudio);
         seekBarSpeed       = findViewById(R.id.seekBarSpeed);
         switchSignLanguage = findViewById(R.id.switchSignLanguage);
         switchSubtitles    = findViewById(R.id.switchSubtitles);
         switchInterpreter  = findViewById(R.id.switchInterpreter);
-        tvAudioTime        = findViewById(R.id.tvAudioTime);
         tvSpeedLabel       = findViewById(R.id.tvSpeedLabel);
         tvFocusTimer       = findViewById(R.id.tvFocusTimer);
 
@@ -86,16 +83,6 @@ public class LessonActivity extends AppCompatActivity {
 
         findViewById(R.id.btnLessonBack).setOnClickListener(v -> finish());
 
-        // Audio play / pause
-        btnAudioPlay.setOnClickListener(v -> {
-            isAudioPlaying = !isAudioPlaying;
-            if (isAudioPlaying) {
-                btnAudioPlay.setImageResource(android.R.drawable.ic_media_pause);
-                startAudioSimulation();
-            } else {
-                btnAudioPlay.setImageResource(android.R.drawable.ic_media_play);
-            }
-        });
 
         // Speed slider
         seekBarSpeed.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
