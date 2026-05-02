@@ -12,7 +12,6 @@ public class AttachActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager2 viewPager;
 
-    private final String[] tabTitles = {"🏠      Home", "📊 Progress", "⚙️ Settings", "👤 Profile"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +30,24 @@ public class AttachActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
 
-        new TabLayoutMediator(tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
-            @Override
-            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                tab.setText(tabTitles[position]);
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
+            switch (position) {
+                case 0:
+                    tab.setText("Home");
+                    tab.setIcon(R.drawable.home);
+                    break;
+                case 1:
+                    tab.setText("Progress");
+                    tab.setIcon(R.drawable.progress);
+                    break;
+                case 2:
+                    tab.setText("Settings");
+                    tab.setIcon(R.drawable.settings);
+                    break;
+                case 3:
+                    tab.setText("Profile");
+                    tab.setIcon(R.drawable.account);
+                    break;
             }
         }).attach();
     }

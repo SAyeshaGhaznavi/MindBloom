@@ -44,8 +44,7 @@ public class SettingsFragment extends Fragment {
 
         // --- 1. HEADER ---
         view.findViewById(R.id.tvBack).setOnClickListener(v -> requireActivity().onBackPressed());
-        view.findViewById(R.id.cardFaq).setOnClickListener(v ->
-                startActivity(new Intent(requireActivity(), FaqActivity.class)));
+
 
         // --- 2. APPEARANCE (Existing) ---
         setupSwitch(view, R.id.switchDarkMode, "darkMode", "Dark mode enabled", "Dark mode disabled");
@@ -240,3 +239,13 @@ public class SettingsFragment extends Fragment {
         context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
     }
 }
+
+
+
+
+
+
+
+
+
+

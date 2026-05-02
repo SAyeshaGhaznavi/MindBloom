@@ -22,6 +22,8 @@
         app:tabIndicatorGravity="bottom"
         app:tabMode="fixed"
         app:tabSelectedTextColor="#6C3FC5"
-        app:tabTextColor="#000000" />
+        app:tabTextColor="#000000"
+        app:tabTextAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
 </LinearLayout>
+
