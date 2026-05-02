@@ -495,7 +495,7 @@
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:text="log out"
-            android:textColor="@color/error"
+            android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:textAllCaps="false"
             android:fontFamily="sans-serif-light"
