@@ -1057,37 +1057,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Help & FAQ link -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bubble_card_bg"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/cardFaq"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="32dp"
-                android:elevation="2dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text=" FAQ and Help"
-                    android:textColor="@color/text_dark"
-                    android:textSize="15sp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="→"
-                    android:textColor="@color/primary_color"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
