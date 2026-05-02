@@ -97,7 +97,7 @@ public class ProgressFragment extends Fragment {
 
     private void updateBadge(SharedPreferences prefs, View view, int emojiViewId,
                              int textViewId, boolean earned) {
-        TextView emoji = view.findViewById(emojiViewId);
+        ImageView emoji = view.findViewById(emojiViewId);
         TextView label = view.findViewById(textViewId);
         if (earned) {
             emoji.setAlpha(1f);

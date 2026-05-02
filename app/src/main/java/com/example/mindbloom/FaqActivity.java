@@ -26,7 +26,7 @@ public class FaqActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq);
 
-        TextView tvBack = findViewById(R.id.tvBack);
+        ImageButton tvBack = findViewById(R.id.tvBack);
         TextView tvBreadcrumb = findViewById(R.id.tvBreadcrumb);
         LinearLayout faqContainer = findViewById(R.id.faqContainer);
 
