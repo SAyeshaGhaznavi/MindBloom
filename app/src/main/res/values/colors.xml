@@ -2,7 +2,7 @@
 <resources>
     <!-- Soft Primary Colors -->
     <color name="primary_color">#7C6FF7</color>
-    <color name="primary_light">#EEEAFF</color>
+    <color name="primary_light">#d9d2f7</color>
     <color name="primary_dark">#5B4FCC</color>
 
     <!-- Background Colors -->

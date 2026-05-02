@@ -32,17 +32,17 @@
                 android:id="@+id/layoutSettings"
                 android:layout_width="44dp"
                 android:layout_height="44dp"
+                android:layout_marginEnd="8dp"
                 android:background="@drawable/circle_icon_bg"
-                android:gravity="center"
-                android:elevation="2dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:layout_marginEnd="8dp">
+                android:gravity="center">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="⚙️"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -50,15 +50,15 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:background="@drawable/circle_icon_bg"
-                android:gravity="center"
-                android:elevation="2dp"
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:gravity="center">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="👤"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -66,74 +66,75 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/soft_gradient_card_bg"
             android:orientation="vertical"
-            android:padding="20dp"
-            android:layout_marginBottom="20dp"
-            android:elevation="4dp">
+            android:padding="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:text="Weekly Progress"
                 android:textColor="@color/text_light"
-                android:textSize="13sp"
-                android:fontFamily="sans-serif-light"/>
+                android:textSize="13sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="sans-serif-light"
                 android:text="Keep Going! 🌸"
                 android:textColor="@color/text_dark"
-                android:textSize="20sp"
-                android:fontFamily="sans-serif-light"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="12dp"/>
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="6dp"
-                android:background="@drawable/progress_bg"
                 android:layout_marginBottom="6dp"
+                android:background="@drawable/progress_bg"
                 android:orientation="horizontal">
+
                 <View
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="65"
-                    android:background="@drawable/progress_fill"/>
+                    android:background="@drawable/progress_fill" />
+
                 <View
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="35"/>
+                    android:layout_weight="35" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="sans-serif-light"
                     android:text="65% completed"
-                    android:textSize="12sp"
                     android:textColor="@color/text_medium"
-                    android:fontFamily="sans-serif-light"/>
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/btnViewProgress"
                     android:layout_width="wrap_content"
                     android:layout_height="36dp"
+                    android:background="@drawable/bubble_button_bg"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:background="@drawable/bubble_button_bg"
+                    android:stateListAnimator="@null"
                     android:text="View Details"
                     android:textAllCaps="false"
                     android:textColor="#FFFFFF"
-                    android:textSize="12sp"
-                    android:stateListAnimator="@null"/>
+                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -149,52 +150,54 @@
                 android:id="@+id/cardSubjects"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
-                android:layout_weight="1"
                 android:layout_marginEnd="6dp"
+                android:layout_weight="1"
                 android:background="@drawable/feature_card_bg"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:elevation="2dp"
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_marginBottom="8dp"
-                    android:src="@drawable/book"/>
+                    android:src="@drawable/book" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
                     android:text="Subjects"
                     android:textColor="@color/text_dark"
-                    android:textSize="13sp"
-                    android:fontFamily="sans-serif-light"/>
+                    android:textSize="13sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/cardHomework"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
-                android:layout_weight="1"
                 android:layout_marginStart="6dp"
+                android:layout_weight="1"
                 android:background="@drawable/feature_card_bg"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:elevation="2dp"
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_marginBottom="8dp"
-                    android:src="@drawable/pencil"/>
+                    android:src="@drawable/pencil" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
                     android:text="Homework"
                     android:textColor="@color/text_dark"
-                    android:textSize="13sp"
-                    android:fontFamily="sans-serif-light"/>
+                    android:textSize="13sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -209,52 +212,54 @@
                 android:id="@+id/cardLectures"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
-                android:layout_weight="1"
                 android:layout_marginEnd="6dp"
+                android:layout_weight="1"
                 android:background="@drawable/feature_card_bg"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:elevation="2dp"
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_marginBottom="8dp"
-                    android:src="@drawable/business"/>
+                    android:src="@drawable/business" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
                     android:text="Lectures"
                     android:textColor="@color/text_dark"
-                    android:textSize="13sp"
-                    android:fontFamily="sans-serif-light"/>
+                    android:textSize="13sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/cardQuizzes"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
-                android:layout_weight="1"
                 android:layout_marginStart="6dp"
+                android:layout_weight="1"
                 android:background="@drawable/feature_card_bg"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:elevation="2dp"
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_marginBottom="8dp"
-                    android:src="@drawable/note"/>
+                    android:src="@drawable/note" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
                     android:text="Quizzes"
                     android:textColor="@color/text_dark"
-                    android:textSize="13sp"
-                    android:fontFamily="sans-serif-light"/>
+                    android:textSize="13sp" />
             </LinearLayout>
         </LinearLayout>
 

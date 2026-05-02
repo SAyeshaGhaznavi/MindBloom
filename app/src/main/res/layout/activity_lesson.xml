@@ -18,7 +18,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/circle_icon_bg"
-            android:src="@android:drawable/ic_media_previous"
+            android:src="@drawable/icon_back"
             android:layout_centerVertical="true"/>
 
         <TextView
@@ -354,12 +354,12 @@
             android:id="@+id/btnLessonPrev"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight="1"
             android:layout_marginEnd="8dp"
-            android:text="← Prev"
+            android:layout_weight="1"
             android:backgroundTint="#c1a2eb"
+            android:text="← Prev"
             android:textColor="#FFFFFF"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnLessonNext"

@@ -81,7 +81,7 @@
         android:id="@+id/btnNext"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:text="Next →"
+        android:text="Next"
         android:backgroundTint="@color/primary_color"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
