@@ -77,8 +77,6 @@ public class ProgressFragment extends Fragment {
         pbLevel.setMax(nextMilestone);
         pbLevel.setProgress(Math.min(totalPoints, nextMilestone));
 
-        // Since this is now inside a ViewPager2, "finish()" won't work.
-        // We use onBackPressed() to close the AttachActivity instead.
         view.findViewById(R.id.btnProgressBack).setOnClickListener(v ->
                 requireActivity().onBackPressed()
         );
