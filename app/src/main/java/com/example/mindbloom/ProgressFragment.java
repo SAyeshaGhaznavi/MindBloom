@@ -32,7 +32,7 @@ public class ProgressFragment extends Fragment {
 
         // Total points
         TextView tvPoints = view.findViewById(R.id.tvTotalPoints);
-        tvPoints.setText("⭐ " + totalPoints + " pts");
+        tvPoints.setText(" " + totalPoints + " pts");
 
         // Quizzes done
         TextView tvQuizCount = view.findViewById(R.id.tvQuizCount);
@@ -40,7 +40,7 @@ public class ProgressFragment extends Fragment {
 
         // Streak
         TextView tvStreak = view.findViewById(R.id.tvStreak);
-        tvStreak.setText("🔥 " + streak + " day streak");
+        tvStreak.setText(" " + streak + " day streak");
 
         // Per-subject progress bars
         updateSubjectBar(prefs, view, "Math",    R.id.barMath,    R.id.tvMathScore);
@@ -63,11 +63,11 @@ public class ProgressFragment extends Fragment {
         // Level calculation
         TextView tvLevel = view.findViewById(R.id.tvLevel);
         String level;
-        if      (totalPoints < 50)  level = "🌱 Seedling";
-        else if (totalPoints < 150) level = "🌿 Sprout";
-        else if (totalPoints < 300) level = "🌸 Blossom";
-        else if (totalPoints < 500) level = "🌳 Tree";
-        else                         level = "🌺 MindBloom Master";
+        if      (totalPoints < 50)  level = "Seedling";
+        else if (totalPoints < 150) level = "Sprout";
+        else if (totalPoints < 300) level = "Blossom";
+        else if (totalPoints < 500) level = "Tree";
+        else                         level = "MindBloom Master";
         tvLevel.setText(level);
 
         // Progress bar for level

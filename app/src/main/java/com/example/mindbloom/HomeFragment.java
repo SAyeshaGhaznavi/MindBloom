@@ -22,7 +22,6 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
@@ -37,7 +36,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        // Added null check just to be safe in fragments
         if (tvWelcome != null) {
             updateWelcome();
         }
@@ -57,7 +55,7 @@ public class HomeFragment extends Fragment {
     private void updateWelcome() {
         SharedPreferences prefs = requireContext().getSharedPreferences("MindBloomPrefs", Context.MODE_PRIVATE);
         String name = prefs.getString("userName", "");
-        tvWelcome.setText(name.isEmpty() ? "Let's Learn!" : "Hey " + name + "! 🌸");
+        tvWelcome.setText(name.isEmpty() ? "Let's Learn!" : "Hey " + name + "!");
     }
 
     private void setupClickListeners() {
@@ -67,14 +65,12 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        // --- CHANGED: Switch to Settings Tab (Index 2) ---
         layoutSettings.setOnClickListener(v -> {
             if (getActivity() instanceof AttachActivity) {
                 ((AttachActivity) requireActivity()).switchTab(2);
             }
         });
 
-        // --- CHANGED: Switch to Progress Tab (Index 1) ---
         btnViewProgress.setOnClickListener(v -> {
             if (getActivity() instanceof AttachActivity) {
                 ((AttachActivity) requireActivity()).switchTab(1);

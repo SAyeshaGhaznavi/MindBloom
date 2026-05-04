@@ -78,15 +78,29 @@
                 android:textColor="@color/text_light"
                 android:textSize="13sp" />
 
-            <TextView
+            <!-- Changed: Sakura drawable instead of emoji -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="12dp"
-                android:fontFamily="sans-serif-light"
-                android:text="Keep Going! 🌸"
-                android:textColor="@color/text_dark"
-                android:textSize="20sp" />
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Keep Going!"
+                    android:textColor="@color/text_dark"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/sakura" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -408,34 +422,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnPoints"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@drawable/bubble_button_bg"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginBottom="24dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:elevation="2dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🪙"
-                android:textSize="22sp"
-                android:layout_marginEnd="10dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Points: 300"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:fontFamily="sans-serif-bold"/>
         </LinearLayout>
 
     </LinearLayout>
