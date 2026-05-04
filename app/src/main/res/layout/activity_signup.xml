@@ -53,7 +53,6 @@
                 android:src="@drawable/people"
                 android:layout_gravity="center"/>
 
-
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="0dp"
@@ -131,7 +130,7 @@
                 android:fontFamily="sans-serif-light" />
         </LinearLayout>
 
-        <!-- Password Input -->
+        <!-- Password Input with Toggle -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -160,6 +159,18 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:fontFamily="sans-serif-light" />
+
+            <!-- Eye Toggle Button -->
+            <ImageView
+                android:id="@+id/ivTogglePassword"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_eye_closed"
+                android:padding="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Toggle password visibility" />
         </LinearLayout>
 
         <TextView
@@ -200,7 +211,34 @@
             android:fontFamily="sans-serif-light"
             android:background="@drawable/bubble_button_bg"
             android:elevation="2dp"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Login Link -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Already have an account? "
+                android:textColor="@color/text_light"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="sans-serif-light"
+                android:text="Sign In"
+                android:textColor="#633dd4"
+                android:textSize="16sp" />
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,7 +20,9 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText etName, etEmail, etPassword;
     private Button btnSignUp;
     private LinearLayout nameErrorLayout, emailErrorLayout, passwordErrorLayout;
-    private TextView tvNameError, tvEmailError, tvPasswordError;
+    private TextView tvNameError, tvEmailError, tvPasswordError, tvLogin;
+    private ImageView ivTogglePassword;
+    private boolean isPasswordVisible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,8 @@ public class SignUpActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnSignUp = findViewById(R.id.btnSignUp);
+        tvLogin = findViewById(R.id.tvLogin);
+        ivTogglePassword = findViewById(R.id.ivTogglePassword);
 
         // Error layouts and text views
         nameErrorLayout = findViewById(R.id.nameErrorLayout);
@@ -46,6 +52,27 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void setupListeners() {
         btnSignUp.setOnClickListener(v -> validateAndSignUp());
+
+        // Login link
+        tvLogin.setOnClickListener(v -> {
+            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+        // Password toggle
+        ivTogglePassword.setOnClickListener(v -> {
+            isPasswordVisible = !isPasswordVisible;
+            if (isPasswordVisible) {
+                etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                ivTogglePassword.setImageResource(R.drawable.ic_eye_open);
+            } else {
+                etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                ivTogglePassword.setImageResource(R.drawable.ic_eye_closed);
+            }
+            // Move cursor to end of text
+            etPassword.setSelection(etPassword.getText().length());
+        });
 
         etName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -114,12 +141,12 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
         if (!hasError) {
-            Toast.makeText(this, "welcome to MindBloom! 🌸", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Welcome to MindBloom!", Toast.LENGTH_SHORT).show();
             getSharedPreferences("MindBloomPrefs", MODE_PRIVATE)
-                .edit()
-                .putString("userName", name)
-                .putString("userEmail", email)
-                .apply();
+                    .edit()
+                    .putString("userName", name)
+                    .putString("userEmail", email)
+                    .apply();
 
             Intent intent = new Intent(SignUpActivity.this, GradeSelectionActivity.class);
             startActivity(intent);

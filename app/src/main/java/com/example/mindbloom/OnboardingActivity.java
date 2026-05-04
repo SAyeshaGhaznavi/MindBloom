@@ -2,6 +2,7 @@ package com.example.mindbloom;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -10,11 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class OnboardingActivity extends AppCompatActivity {
 
     private final String[] titles = {
-        "Welcome to MindBloom 🌸",
-        "Learn at Your Pace 📚",
-        "Quiz & Earn Points 🏆",
-        "Track Your Progress 📊",
-        "You're All Set! 🎉"
+        "Welcome to MindBloom",
+        "Learn at Your Pace",
+        "Quiz & Earn Points",
+        "Track Your Progress",
+        "You're All Set!"
     };
 
     private final String[] descriptions = {
@@ -25,10 +26,17 @@ public class OnboardingActivity extends AppCompatActivity {
         "Tap any card on the dashboard to start learning. You can revisit this guide in Settings anytime!"
     };
 
-    private final String[] emojis = {"🌸", "📚", "🏆", "📊", "🎉"};
+    private final int[] images = {
+            R.drawable.sakura,
+            R.drawable.book,
+            R.drawable.trophy,
+            R.drawable.star,
+            R.drawable.fire
+    };
 
     private int currentPage = 0;
-    private TextView tvTitle, tvDesc, tvEmoji, tvSkip, tvStep;
+    private TextView tvTitle, tvDesc, tvSkip, tvStep;
+    private ImageView ivImage;
     private Button btnNext;
     private LinearLayout dotsContainer;
 
@@ -39,7 +47,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
         tvTitle      = findViewById(R.id.tvOnboardTitle);
         tvDesc       = findViewById(R.id.tvOnboardDesc);
-        tvEmoji      = findViewById(R.id.tvOnboardEmoji);
+        ivImage      = findViewById(R.id.tvOnboardEmoji);
         tvSkip       = findViewById(R.id.tvSkip);
         tvStep       = findViewById(R.id.tvStep);
         btnNext      = findViewById(R.id.btnNext);
@@ -63,11 +71,14 @@ public class OnboardingActivity extends AppCompatActivity {
         currentPage = index;
         tvTitle.setText(titles[index]);
         tvDesc.setText(descriptions[index]);
-        tvEmoji.setText(emojis[index]);
+
+        ivImage.setImageResource(images[index]);
+
         tvStep.setText((index + 1) + " of " + titles.length);
         btnNext.setText(index == titles.length - 1 ? "Get Started!" : "Next →");
         updateDots(index);
     }
+
 
     private void buildDots() {
         dotsContainer.removeAllViews();

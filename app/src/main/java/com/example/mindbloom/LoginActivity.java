@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private TextView tvSignUp, tvEmailError, tvPasswordError;
     private LinearLayout emailErrorLayout, passwordErrorLayout;
+    private ImageView ivTogglePassword;
+    private boolean isPasswordVisible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +50,28 @@ public class LoginActivity extends AppCompatActivity {
         tvPasswordError   = findViewById(R.id.tvPasswordError);
         emailErrorLayout    = findViewById(R.id.emailErrorLayout);
         passwordErrorLayout = findViewById(R.id.passwordErrorLayout);
+        ivTogglePassword  = findViewById(R.id.ivTogglePassword);
     }
 
     private void setupListeners() {
         btnLogin.setOnClickListener(v -> validateAndLogin());
 
         tvSignUp.setOnClickListener(v ->
-            startActivity(new Intent(LoginActivity.this, SignUpActivity.class)));
+                startActivity(new Intent(LoginActivity.this, SignUpActivity.class)));
+
+        // Password toggle
+        ivTogglePassword.setOnClickListener(v -> {
+            isPasswordVisible = !isPasswordVisible;
+            if (isPasswordVisible) {
+                etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                ivTogglePassword.setImageResource(R.drawable.ic_eye_open);
+            } else {
+                etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                ivTogglePassword.setImageResource(R.drawable.ic_eye_closed);
+            }
+            // Move cursor to end of text
+            etPassword.setSelection(etPassword.getText().length());
+        });
 
         etEmail.addTextChangedListener(new TextWatcher() {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -88,16 +107,12 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (!hasError) {
-            Toast.makeText(this, "welcome back! 🌸", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Welcome back!", Toast.LENGTH_SHORT).show();
             SharedPreferences prefs = getSharedPreferences("MindBloomPrefs", MODE_PRIVATE);
-            
-            // Actually check if user exists (simple logic for now)
+
             String savedEmail = prefs.getString("userEmail", "");
             if (!email.equals(savedEmail) && !email.equals("admin")) {
                 // For demo purposes, we'll allow 'admin' or the registered email
-                // If you want strict login, uncomment the return below
-                // Toast.makeText(this, "User not found. Please sign up.", Toast.LENGTH_SHORT).show();
-                // return;
             }
 
             prefs.edit().putBoolean("isLoggedIn", true).apply();
